@@ -58,4 +58,5 @@ module Authlogic
   end
 end
 
-Sinatra::Request.send(:include, Authlogic::ControllerAdapters::SinatraAdapter::Adapter::Implementation)
+# Disabling the sinatra adapter because it conflicts with evergreen
+# Sinatra::Request.send(:include, Authlogic::ControllerAdapters::SinatraAdapter::Adapter::Implementation)
