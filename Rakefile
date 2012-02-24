@@ -1,20 +1,8 @@
 require 'rubygems'
 require 'rake'
+require 'bundler'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "authlogic"
-    gem.summary = "A clean, simple, and unobtrusive ruby authentication solution."
-    gem.email = "bjohnson@binarylogic.com"
-    gem.homepage = "http://github.com/binarylogic/authlogic"
-    gem.authors = ["Ben Johnson of Binary Logic"]
-    gem.add_dependency "activesupport"
-  end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
-end
+Bundler.setup
 
 require 'rake/testtask'
 Rake::TestTask.new(:test) do |test|
@@ -35,7 +23,5 @@ rescue LoadError
     abort "RCov is not available. In order to run rcov, you must: sudo gem install spicycode-rcov"
   end
 end
-
-task :test => :check_dependencies
 
 task :default => :test

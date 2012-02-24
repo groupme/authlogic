@@ -1,7 +1,7 @@
 module Authlogic
   module ActsAsAuthentic
     # Maintains the persistence token, the token responsible for persisting sessions. This token
-    # gets stores in the session and the cookie.
+    # gets stored in the session and the cookie.
     module PersistenceToken
       def self.included(klass)
         klass.class_eval do
@@ -53,7 +53,7 @@ module Authlogic
           # Same as reset_persistence_token, but then saves the record.
           def reset_persistence_token!
             reset_persistence_token
-            save_without_session_maintenance(false)
+            save_without_session_maintenance(:validate => false)
           end
           alias_method :forget!, :reset_persistence_token!
           
